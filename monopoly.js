@@ -1111,7 +1111,7 @@ function Player(name, color) {
 	this.name = name;
 	this.color = color;
 	this.position = 0;
-	this.money = 1500;
+	this.money = 25000;
 	this.creditor = -1;
 	this.jail = false;
 	this.jailroll = 0;
@@ -1808,7 +1808,7 @@ function gotojail() {
 	p.jail = true;
 	doublecount = 0;
 
-	document.getElementById("nextbutton").value = "End turn";
+	document.getElementById("nextbutton").value = "Finalizar Turno";
 	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 
 	if (p.human) {
@@ -1879,16 +1879,16 @@ function advance(destination, pass) {
 			p.position = pass;
 		} else {
 			p.position = pass;
-			p.money += 200;
-			addAlert(p.name + " collected a $200 salary for passing GO.");
+			p.money += 2000;
+			addAlert(p.name + " recebeu $2.000 por passar pelo INÍCIO.");
 		}
 	}
 	if (p.position < destination) {
 		p.position = destination;
 	} else {
 		p.position = destination;
-		p.money += 200;
-		addAlert(p.name + " collected a $200 salary for passing GO.");
+		p.money += 2000;
+		addAlert(p.name + " recebeu $2.000 por passar pelo INÍCIO.");
 	}
 
 	land();
@@ -2107,7 +2107,7 @@ function showStats() {
 				housetext = "";
 
 				if (sq.mortgage) {
-					mortgagetext = "title='Mortgaged' style='color: grey;'";
+					mortgagetext = "title='Hipotecado' style='color: grey;'";
 				}
 
 				if (!write) {
@@ -2149,7 +2149,7 @@ function showStats() {
 		}
 
 		if (!write) {
-			HTML += p.name + " dosen't have any properties.";
+			HTML += p.name + " não possui nenhuma propriedade!";
 		} else {
 			HTML += "</table>";
 		}
@@ -2379,7 +2379,7 @@ function land(increasedRent) {
 	}
 
 	// City Tax
-	if (p.position === 4) {
+	if (p.position === 23) {
 		citytax();
 	}
 
@@ -2397,7 +2397,7 @@ function land(increasedRent) {
 		return;
 	}
 
-	// Luxury Tax
+	//Luxury Tax
 	if (p.position === 38) {
 		luxurytax();
 	}
